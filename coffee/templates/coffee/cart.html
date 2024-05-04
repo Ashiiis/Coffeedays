@@ -1,0 +1,13 @@
+<!-- cart.html -->
+
+<h2>Your Cart</h2>
+{% for item in cart_items %}
+    <p>{{ item.product_name }} - Quantity: {{ item.quantity }} - Subtotal: ${{ item.subtotal }}</p>
+{% endfor %}
+<p>Total Amount: ${{ total_amount }}</p>
+
+<form method="post" action="{% url 'initiate_payment' %}">
+    {% csrf_token %}
+    <!-- Add other form fields, if needed -->
+    <input type="submit" value="Proceed to Pay">
+</form>
