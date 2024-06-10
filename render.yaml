@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: render
+    env: python
+    buildCommand: ""
+    startCommand: gunicorn coffeeshop.wsgi
+    plan: free
+    autoDeploy: true
+    envVars:
+      - key: DATABASE_URL
+        value: "postgres://prettyprinted_django_render_btin_user:b6nyXPXkVEI2mZTR974bcZsRBtMuOmf7@dpg-cpjd5j4f7o1s73bu2tug-a.oregon-postgres.render.com/prettyprinted_django_render_btin"
