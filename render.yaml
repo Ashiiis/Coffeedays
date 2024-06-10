@@ -1,8 +1,8 @@
 services:
   - type: web
-    name: render
+    name: django-web-service
     env: python
-    buildCommand: ""
+    buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput"
     startCommand: gunicorn coffeeshop.wsgi
     plan: free
     autoDeploy: true
